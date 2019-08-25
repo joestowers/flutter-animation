@@ -169,7 +169,7 @@ This chart outlines the four animation classes:
 
     +   By default, widgets positioned according to alignment in the top-left corner 
 
-+   Add debug rendering statement in `main.dart` to see widget boundaries
++   Add a debug rendering statement in `main.dart` to see widget boundaries:
 
 ```dart
     import 'package:flutter/rendering.dart';
@@ -183,3 +183,7 @@ This chart outlines the four animation classes:
 +   The Stack boundary lines in debug mode:
 
     ![Stack Debug Render](assets/images/StackDebugRender.png)
+
+
+## Expanding Stack Dimensions (Lec. 197)
+
