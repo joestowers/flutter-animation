@@ -249,7 +249,7 @@ This chart outlines the four animation classes:
         builder: (context, child) {
             return Positioned(
                 child: child,
-                bottom: catAnimation.value,
+                top: catAnimation.value,
                 right: 0.0,
                 left: 0.0
             );
@@ -262,3 +262,34 @@ This chart outlines the four animation classes:
 +   How the Cat displays with the additional `right` and `left` constraints:
 
     ![Positioned Widget Constraints](assets/images/PositionedWidgetConstraints.png)
+
+
+## Negative Offsets (Lec. 200)
+
++   Used a negative offset to reposition the Cat's ears to appear outside of the Stack
+
+```dart
+    catAnimation = Tween(begin: -50.0, end: -50.0).animate(CurvedAnimation(
+      parent: catController,
+      curve: Curves.easeIn,
+    ));
+
+```
+
+## Stack Clip Settings
+
++   Add Stack property to allow for widget to extend beyond Stack
+
+```dart
+    child: Stack(
+        children: <Widget>[
+            buildBox(),
+            buildCatAnimation(),
+        ],
+        overflow: Overflow.visible
+    )
+
+```
+
+## Adjust Tween Ranges (Lec. 202)
+
