@@ -43,10 +43,21 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         appBar: AppBar(
           title: Text('Animation!'),
         ),
-        body: GestureDetector(child: buildAnimation(), onTap: onTap));
+        body: GestureDetector(
+          child: Center(
+              child: Stack(
+                children: <Widget>[
+                  buildCatAnimation(),
+                  buildBox(),
+                ],
+              )
+            ),
+          onTap: onTap
+        )
+    );
   }
 
-  Widget buildAnimation() {
+  Widget buildCatAnimation() {
     return AnimatedBuilder(
       animation: catAnimation,
       builder: (context, child) {
@@ -54,6 +65,14 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             child: child, margin: EdgeInsets.only(top: catAnimation.value));
       },
       child: Cat(),
+    );
+  }
+
+  Widget buildBox() {
+    return Container(
+      height: 200.0,
+      width: 200.0,
+      color: Colors.brown,
     );
   }
 }

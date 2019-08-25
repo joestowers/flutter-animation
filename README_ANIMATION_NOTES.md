@@ -113,3 +113,70 @@ Tuesday, July 9, 2019
 +   Will move Cat by changing the margin around the cat
 
 +   What property are you going to change over time?
+
+
+## Building a Box Using Container
+
++   [Container](https://api.flutter.dev/flutter/widgets/Container-class.html)
+
+
+## Layouts with the Stack Widget (Lec. 193, 194)
+
++   [Stack](https://api.flutter.dev/flutter/widgets/Stack-class.html)
+
++   The Cat body doesn't obey the rules of Column or Row
+
++   _Layout Widgets_
+
+    +   Column - attempts to layout list of widgets in a column
+
+    +   Row - layout a list of widgets in a row
+
+    +   Stack - render widgets on top of each other; we can position these widgets relative to each other
+
+##  Order of Drawing Widgets on Stack
+
+```dart 
+     child: Stack(
+        children: <Widget>[
+            Widget1,
+            Widget2,
+            Widget3
+        ],
+``` 
++   Widget1 is first, so it's at the bottom of the stack.  Widget3 is last, so it's on the top.
+
+## Center a Widget (Lec. 195)
+
++   [Center](https://api.flutter.dev/flutter/widgets/Center-class.html)
+
++   Centers its child within itself.  Center widget expands to fill entire space.  Takes a single child and tries to fill the entire space.
+
++   Added a Center widget to wrap the Stack of animation
+
+
+## Positioned Widgets (Lec. 196)
+
++   [Stack](https://api.flutter.dev/flutter/widgets/Stack-class.html) provides the layout rules for Cat and Box, not the Center widget:
+
+    +   Each child of a Stack widget is either positioned or non-positioned
+
+    +   By default, Stack elements are non-positioned
+
+    +   Stack sizes itself to contain all non-positioned children
+
+    +   By default, widgets positioned according to alignment in the top-left corner 
+
++   Add debug rendering statement in `main.dart` to see widget boundaries
+
+```dart
+    import 'package:flutter/rendering.dart';
+
+    void main() {
+        debugPaintSizeEnabled = true;
+        runApp(App());
+    }
+
++   The Stack boundary lines in debug mode:
+
+    ![Stack Debug Render](assets/images/StackDebugRender.png)
