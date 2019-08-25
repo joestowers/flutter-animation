@@ -4,7 +4,7 @@ Tuesday, July 9, 2019
 
 ## Four Key Classes
 
-1.  __Animation__
+1.  __[Animation](https://api.flutter.dev/flutter/animation/Animation-class.html)__
 
     +   Records the current 'value' of the property being animated
 
@@ -16,7 +16,7 @@ Tuesday, July 9, 2019
             -   status: 'stopped'
             -   yPosition: 110px
 
-2.  __AnimationController__
+2.  __[AnimationController](https://api.flutter.dev/flutter/animation/AnimationController-class.html)__
 
     +   Responsible for starting, stopping, and restarting the animation
 
@@ -32,7 +32,7 @@ Tuesday, July 9, 2019
             -   stop()
 
 
-3.  __Tween__
+3.  __[Tween](https://api.flutter.dev/flutter/animation/Tween-class.html)__
 
     +   Short for inbetween - how a range of values of animation are changing
 
@@ -43,7 +43,7 @@ Tuesday, July 9, 2019
             - ending value of 200px
 
 
-4.  __AnimatedBuilder__
+4.  __[AnimatedBuilder](https://api.flutter.dev/flutter/widgets/AnimatedBuilder-class.html)__
 
     +   Takes an animation and a 'builder' function
 
@@ -81,7 +81,7 @@ This chart outlines the four animation classes:
 
 +   CurvedAnimation - rate at which Tween will change over time.  Curved animations usually provide better, more natural, animations, than linear.
 
-+   Tween is created one time, no need to define to an instance variable
++   Tween is created one time, no need to define an instance variable
 
 
 ## Performance Savings with AnimatedBuilder (Lec. 187)
@@ -94,7 +94,7 @@ This chart outlines the four animation classes:
 
 +   So inside builder, only make one small change
 
-+   For child: the one instance of Cat() will be used again and agains
++   For child: the one instance of Cat() will be used again and again
 
 ````dart
     Widget buildAnimation() {
