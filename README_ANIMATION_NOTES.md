@@ -52,7 +52,7 @@ Tuesday, July 9, 2019
     +   Very similar to StreamBuilder
 
 
-This chart outlines the four animatioon classes:
+This chart outlines the four animation classes:
 
 ![Animation Classes](assets/images/AnimationClasses.png)
 
@@ -178,6 +178,7 @@ This chart outlines the four animatioon classes:
         debugPaintSizeEnabled = true;
         runApp(App());
     }
+```
 
 +   The Stack boundary lines in debug mode:
 
