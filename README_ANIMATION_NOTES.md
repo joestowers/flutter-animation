@@ -187,3 +187,78 @@ This chart outlines the four animation classes:
 
 ## Expanding Stack Dimensions (Lec. 197)
 
++   To get center alignment correct for Cat and Box, will change Cat layout only
+
++   Changing margin of Container to move Cat - big downside when using Stack widget
+
++   But as the Cat moves, the margin increases and the Box continues to stay pinned to the upper left corner of the Stack
+
++   Key - don't change dimensions of Stack, because that will change everything in the Stack
+
++   TODO - change Cat from non-positioned to positioned.  The Stack will then ignore
+
++   [Positioned](https://api.flutter.dev/flutter/widgets/Positioned-class.html) - a Widget container specifically for the Stack class
+
+```dart
+    Widget buildCatAnimation() {
+      return AnimatedBuilder(
+        animation: catAnimation,
+        builder: (context, child) {
+          return Positioned(
+            child: child,
+            bottom: catAnimation.value,
+          );
+        },
+        child: Cat(),
+      );
+    }
+```
+
+## Three Reasons for Strange Layouts (Lec. 198)
+
++   When using a `Positioned` widget, the Stack ignores that widget when it does its sizing
+
++   Three Strange Things
+
+    1.  See bottom-left corner of Cat image - offset to 0.0 on bottom left
+        - bottom property - tries to match to bottom edge of Stack
+
+    2.  Why Cat image is so large - image expands to its container extents
+
+    3.  Why do we only see the whiskers?
+        - Image extends beyond bounds of Stack
+        - Stack clips anything outside of its own extend
+
+
+## Positioned Constraints (Lec. 199)
+
++   To fix then Positioned widget, add `right` and `left` constraints:
+
+    +   right - 0.0 pixel offset - match up with right-hand edge of Stack
+    
+    +   left - 0.0 pixel offset
+
++   Adding left and right constraints will shrink the Positioned element to the size of the Stack
+
++   With the three Positioned constraints of bottom, right, and left, the Positioned element will only fill up the size of the Stack.  This will shrink the size of the Image to the size of the Positioned element.
+
+    ```dart
+    Widget buildCatAnimation() {
+      return AnimatedBuilder(
+        animation: catAnimation,
+        builder: (context, child) {
+            return Positioned(
+                child: child,
+                bottom: catAnimation.value,
+                right: 0.0,
+                left: 0.0
+            );
+        },
+        child: Cat(),
+      );
+    }
+    ```
+
++   How the Cat displays with the additional `right` and `left` constraints:
+
+    ![Positioned Widget Constraints](assets/images/PositionedWidgetConstraints.png)
