@@ -280,7 +280,7 @@ This chart outlines the four animation classes:
 
 +   Add Stack property to allow for widget to extend beyond Stack
 
-```dart
+    ```dart
     child: Stack(
         children: <Widget>[
             buildBox(),
@@ -288,8 +288,17 @@ This chart outlines the four animation classes:
         ],
         overflow: Overflow.visible
     )
-
-```
+    ```
 
 ## Adjust Tween Ranges (Lec. 202)
 
++   Adjust tween ranges for Cat head to pop up
+
++   Decrease catController duration from 2 seconds to 300 milliseconds to make the animation more realistic:
+
+    ```dart
+    catController = AnimationController(
+      duration: Duration(milliseconds: 300),
+      vsync: this,
+    );
+    ```
